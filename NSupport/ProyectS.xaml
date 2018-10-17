@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="NSupport.ProyectS"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NSupport"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900" Background="#ecf0f1">
+    <Grid Name="ContentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" Foreground="#004346"><Run Text="PROYECTOS"/></TextBlock>
+        </Grid>
+        <Grid  Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15">
+            <Grid.Resources>
+                <Style x:Key="botones-menu">
+                    <Setter Property="FrameworkElement.Width" Value="180"/>
+                    <Setter Property="FrameworkElement.Height" Value="160"/>
+                    <Setter Property="Control.Background" Value="#508991"/>
+                    <Setter Property="Control.BorderBrush" Value="#2980b9"/>
+                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+                    <Setter Property="FrameworkElement.Cursor" Value="Hand"/>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="black" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="Control.IsMouseOver" Value="True">
+                            <Setter Property="Control.Background" Value="#74b3ce"/>
+                            <Setter Property="Control.Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <Style x:Key="grid-menu">
+                    <Setter Property="FrameworkElement.Height" Value="160"/>
+                    <Setter Property="FrameworkElement.Width" Value="140"/>
+                </Style>
+                <Style x:Key="imagen-menu">
+                    <Setter Property="FrameworkElement.Margin" Value="0,20,0,0"/>
+                    <Setter Property="FrameworkElement.Height" Value="50"/>
+                    <Setter Property="FrameworkElement.Width" Value="50"/>
+                </Style>
+                <Style x:Key="texto-menu">
+                    <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center"/>
+                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+                    <Setter Property="Control.FontSize" Value="14"/>
+                    <Setter Property="Control.Foreground" Value="#1abc9c"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="130*" />
+                <RowDefinition Height="55" />
+            </Grid.RowDefinitions>
+            <Grid Name="Grid3cab" Margin="5,0,5,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#bdc3c7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Label FontSize="15" HorizontalAlignment="Left" Margin="2,1,0,4" Grid.Row="0" Grid.Column="0" Width="61" VerticalAlignment="Center" FontWeight="Bold">Código:</Label>
+                <TextBox Name="TextBoxCodigo" VerticalContentAlignment="Top" MaxLength="3" Height="Auto" Grid.Column="1" Margin="2,6" IsEnabled="True" xml:space="preserve" />
+                
+                <Label FontSize="15" HorizontalAlignment="Left" Margin="0,3,0,2" Grid.Row="0" Grid.Column="2" Width="68" VerticalAlignment="Center" FontWeight="Bold">Nombre:</Label>                
+                <TextBox Name="TextBoxNombre" Height="Auto"  HorizontalAlignment="left"  Grid.Column="3" Margin="0,6" Width="316"/>                
+                
+                <Label FontWeight="Bold" HorizontalContentAlignment="Left"   Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center">ID:</Label>                
+                <TextBlock  Name="TextBoxID" FontWeight="Bold" Text="{Binding text}" Height="Auto"  Grid.Column="5"  HorizontalAlignment="Left"  Foreground="Red" xml:space="preserve" VerticalAlignment="Center" ></TextBlock>
+                
+            </Grid>
+            <Grid Grid.Row="1" Background="#bdc3c7" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="470"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Label FontWeight="Bold" Foreground="Black" Content="Estado:" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5"/>
+                <ComboBox x:Name="nEstado" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Grid.Row="0" Grid.Column="1" Margin="5">
+                    <ComboBoxItem>Activos</ComboBoxItem>
+                    <ComboBoxItem>Inactivos</ComboBoxItem>
+                    <ComboBoxItem>En desarrollo</ComboBoxItem>
+                    <ComboBoxItem>Terminado</ComboBoxItem>
+                </ComboBox>
+                <Label FontWeight="Bold" Foreground="Black" Content="Nombre de la empresa:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="5"  Height="26" />
+                <TextBox  Name="TextBoxEmpresa" Grid.Column="3" Margin="5"></TextBox>
+                <Label FontWeight="Bold" Foreground="Black" Content="Modulo:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5"  Height="26" />
+                <ComboBox x:Name="tModulo" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Margin="5" Width="75">
+                    <ComboBoxItem>Contabilidad</ComboBoxItem>
+                    <ComboBoxItem>Facturacion</ComboBoxItem>
+                    <ComboBoxItem>Inventario</ComboBoxItem>
+                    <ComboBoxItem>Activo fijo</ComboBoxItem>
+                    <ComboBoxItem>NIF</ComboBoxItem>
+                    <ComboBoxItem>Punto de venta</ComboBoxItem>
+                </ComboBox>
+                <Label FontWeight="Bold" Foreground="Black" Content="Caracteristicas:" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="5"  Height="26" />
+                <TextBox VerticalContentAlignment="Top" Name="TextCara" Grid.Column="3" Grid.Row="1" Margin="5" Height="200" HorizontalAlignment="Stretch" TextWrapping="WrapWithOverflow" AcceptsReturn="True"></TextBox>
+            </Grid>
+            <Grid Margin="0" Grid.Row="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button Background="#2980b9" Content="Nuevo caso" Grid.Column="0"  Grid.Row="0"  x:Name="ButtonNuevaProyecto"  Click="Abrir_NuevoProyecto" Margin="10,2" Height="48" Width="Auto" Style="{DynamicResource MaterialDesignRaisedButton}">
+                </Button>
+                <Button Background="#2980b9" Content="Limpiar" Grid.Column="1"  Grid.Row="0"  x:Name="ButtonLimpiar" Style="{DynamicResource MaterialDesignRaisedButton}"  Click="Abrir_Limpiar" Margin="10,2,10,2" Height="48"  Width="Auto" >
+                </Button>
+                <Button Background="#2980b9" Content="Cancelar" Grid.Column="2"  Grid.Row="0"  x:Name="ButtonCancelar" Style="{DynamicResource MaterialDesignRaisedButton}"  Click="Abrir_Cancelar" Margin="10,2,10,2" Height="48" Width="Auto">
+                </Button>
+                <Button Background="#2980b9" Content="Buscar" Grid.Column="3"  Grid.Row="0"  x:Name="ButtonBuscar" Style="{DynamicResource MaterialDesignRaisedButton}"  Click="Abrir_Buscar" Margin="10,2,10,2" Height="48" Width="Auto"  >
+                </Button>
+                <Button Background="#2980b9" Content="Guardar" Grid.Column="4"  Grid.Row="0"  x:Name="ButtonGuardar" Style="{DynamicResource MaterialDesignRaisedButton}"  Click="Abrir_Buscar" Margin="10,2,10,2" Height="48" Width="Auto"  >
+                </Button>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

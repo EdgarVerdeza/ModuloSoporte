@@ -1,0 +1,29 @@
+﻿<Window x:Class="NSupport.BusquedaS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NSupport"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="Busqueda" Height="450" Width="450">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Column="0" Margin="30,0" VerticalAlignment="Center"></TextBox>
+        <Button Background="#2980b9" Grid.Column="1" HorizontalAlignment="Center">Buscar</Button>
+
+        <syncfusion:SfDataGrid  Margin="15" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1">
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn Width="100" MappingName="Fecha_Creacion" HeaderText="aaa"/>
+                <syncfusion:GridTextColumn Width="310" MappingName="Fecha_Cierre" HeaderText="aaa"/>
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+    </Grid>
+</Window>
